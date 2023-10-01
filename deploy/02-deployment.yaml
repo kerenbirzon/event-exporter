@@ -35,6 +35,12 @@ spec:
             allowPrivilegeEscalation: false
             capabilities:
               drop: [ALL]
+          env:
+            - name: SLACK_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: slack-token
+                  key: slack-token
       volumes:
         - name: cfg
           configMap:
