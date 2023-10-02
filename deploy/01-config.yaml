@@ -11,9 +11,9 @@ data:
     route:
       routes:
         - match:
-            - receiver: "slack"
+            - receiver: "slack3"
     receivers:
-      - name: "slack"
+      - name: "slack4"
         slack:
           token: ${SLACK_TOKEN}
           channel: "#random"

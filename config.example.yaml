@@ -9,7 +9,7 @@ route:
   routes:
     # This route allows dumping all events because it has no fields to match and no drop rules.
     - match:
-        - receiver: "dump"
+        - receiver: "dump5"
     # This starts another route, drops all the events in *test* namespaces and Normal events
     # for capturing critical events
     - match:
@@ -25,13 +25,13 @@ route:
         - kind: "Pod|Deployment|ReplicaSet"
           labels:
             version: "dev"
-          receiver: "slack"
+          receiver: "slack6"
     - match:
         - receiver: "firehose"
       drop:
         - type: "Normal"
 receivers:
-  - name: "dump"
+  - name: "dump7"
     elasticsearch:
       hosts:
         - "http://localhost:9200"
@@ -54,7 +54,7 @@ receivers:
         - "{{ .Reason }}"
         - "{{ .InvolvedObject.Kind }}"
         - "{{ .InvolvedObject.Name }}"
-  - name: "slack"
+  - name: "slack8"
     slack:
       token: ""
       channel: "#mustafa-test"
