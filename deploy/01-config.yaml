@@ -16,7 +16,7 @@ data:
       - name: "slack"
         slack:
           token: ${SLACK_TOKEN}
-          channel: "@{{ .InvolvedObject.Labels.owner }}"
+          channel: "#random"
           message: "{{ .Message }}"
           fields:
             namespace: "{{ .Namespace }}"
