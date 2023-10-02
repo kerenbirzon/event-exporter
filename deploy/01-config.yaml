@@ -22,7 +22,7 @@ data:
       - name: "slack"
         slack:
           token: ${SLACK_TOKEN}
-          channel: "#general"
+          channel: "general"
           message: "{{ .Message }}"
           fields:
             namespace: "{{ .Namespace }}"
@@ -31,7 +31,7 @@ data:
       - name: "dump"
         slack:
           token: ${SLACK_TOKEN}
-          channel: "#general"
+          channel: "event-exporter"
           message: "{{ .Message }}"
           fields:
             namespace: "{{ .Namespace }}"
