@@ -28,7 +28,7 @@ data:
             namespace: "{{ .Namespace }}"
             reason: "{{ .Reason }}"
             object: "{{ .Namespace }}"
-      - name: "slack"
+      - name: "dump"
         slack:
           token: ${SLACK_TOKEN}
           channel: "#general"
