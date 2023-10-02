@@ -12,6 +12,9 @@ data:
       routes:
         - match:
             - receiver: "dump"
+        - match:
+            - namespace: "argocd"
+              receiver: "slack"
     receivers:
       - name: "slack"
         slack:
