@@ -4,7 +4,7 @@ clusterName: my-super-local-cluster
 route:
   routes:
     - match:
-        - receiver: "slack2"
+        - receiver: "dump"
 receivers:
-  - name: "slack1"
+  - name: "dump"
     stdout: {}
