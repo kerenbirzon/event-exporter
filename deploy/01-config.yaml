@@ -15,11 +15,23 @@ data:
         - match:
             - namespace: "argocd"
               receiver: "slack"
+        - match:
+            - kind: "Pod|Deployment|ReplicaSet"
+              receiver: "slack"
     receivers:
       - name: "slack"
         slack:
           token: ${SLACK_TOKEN}
           channel: "@{{ .InvolvedObject.Labels.owner }}"
+          message: "{{ .Message }}"
+          fields:
+            namespace: "{{ .Namespace }}"
+            reason: "{{ .Reason }}"
+            object: "{{ .Namespace }}"
+      - name: "slack"
+        slack:
+          token: ${SLACK_TOKEN}
+          channel: "#general"
           message: "{{ .Message }}"
           fields:
             namespace: "{{ .Namespace }}"
