@@ -22,7 +22,7 @@ data:
       - name: "slack"
         slack:
           token: ${SLACK_TOKEN}
-          channel: "@{{ .InvolvedObject.Labels.owner }}"
+          channel: "#general"
           message: "{{ .Message }}"
           fields:
             namespace: "{{ .Namespace }}"
