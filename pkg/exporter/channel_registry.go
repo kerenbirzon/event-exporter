@@ -24,9 +24,8 @@ type ChannelBasedReceiverRegistry struct {
 
 func (r *ChannelBasedReceiverRegistry) SendEvent(name string, event *kube.EnhancedEvent) {
 	ch := r.ch[name]
-	log.info().Str("Channel Name", ch).Msg("Channel Name", ch)
 	if ch == nil {
-		log.Error().Str("name", name).Msg("There is no channel")
+		log.Error().Str("name", name).Msg("There is no channel", ch)
 	}
 
 	go func() {

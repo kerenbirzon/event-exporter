@@ -11,7 +11,7 @@ data:
     route:
       routes:
         - match:
-            - receiver: "dump"
+            - receiver: "slack"
     receivers:
       - name: "slack"
         slack:
