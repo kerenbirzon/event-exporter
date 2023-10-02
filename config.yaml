@@ -6,5 +6,12 @@ route:
     - match:
         - receiver: "dump"
 receivers:
-  - name: "dump"
-    stdout: {}
+  - name: "slack"
+        slack:
+          token: ${SLACK_TOKEN}
+          channel: "#random"
+          message: "{{ .Message }}"
+          fields:
+            namespace: "{{ .Namespace }}"
+            reason: "{{ .Reason }}"
+            object: "{{ .Namespace }}"
