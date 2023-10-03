@@ -11,7 +11,8 @@ data:
     route:
       routes:
         - match:
-            - receiver: "dump"
+            - type: "Normal"
+              receiver: "dump"
         - match:
             - type: "Warning"
               receiver: "slack"
