@@ -13,16 +13,13 @@ data:
         - match:
             - receiver: "dump"
         - match:
-            - namespace: "argocd"
-              receiver: "slack"
-        - match:
-            - kind: "Pod|Deployment|ReplicaSet"
+            - type: "Warning"
               receiver: "slack"
     receivers:
       - name: "slack"
         slack:
           token: ${SLACK_TOKEN}
-          channel: "general"
+          channel: "event-exporter"
           message: "{{ .Message }}"
           fields:
             namespace: "{{ .Namespace }}"
@@ -31,7 +28,7 @@ data:
       - name: "dump"
         slack:
           token: ${SLACK_TOKEN}
-          channel: "event-exporter"
+          channel: "general"
           message: "{{ .Message }}"
           fields:
             namespace: "{{ .Namespace }}"
