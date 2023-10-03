@@ -11,25 +11,14 @@ data:
     route:
       routes:
         - match:
+            - receiver: "slack"
+          drop:
             - type: "Normal"
-              receiver: "dump"
-        - match:
-            - type: "Warning"
-              receiver: "slack"
     receivers:
       - name: "slack"
         slack:
           token: ${SLACK_TOKEN}
           channel: "event-exporter"
-          message: "{{ .Message }}"
-          fields:
-            namespace: "{{ .Namespace }}"
-            reason: "{{ .Reason }}"
-            object: "{{ .Namespace }}"
-      - name: "dump"
-        slack:
-          token: ${SLACK_TOKEN}
-          channel: "general"
           message: "{{ .Message }}"
           fields:
             namespace: "{{ .Namespace }}"
